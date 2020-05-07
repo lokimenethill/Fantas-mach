@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .img_fanctoche {
+  float: left;
+}
+
+
+    </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Fantas-mach</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Inicio <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Juego.html">Jugar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="instrucciones.html">Instrucciones</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Multijugador(proximamente)</a>
+        </li>
+      </ul>          
+    </div>
+  </nav>
+
+    <div class="container-fluid" >
+    <div id="alerta" class="alert alert-info alert-dismissible fade show" >
+    <strong> <div id="esperando" >Esperando respuesta ......<div class='spinner-grow spinner-grow-sm' role='status'><span class='sr-only'>Loading...</span></div>
+      </div> </strong> <strong id="respuesta" ></strong>
+      <button type="button" class="close" data-dismiss="alert" >&times;</button>
+  </div>
+</div>
+
+<div class="container">
+    <div class="row">
+      <div class="col">
+      <img id="img_fantoche" src="/img/pregunta.png" class="img-fluid" width="110%" height="100%" alt="...">
+      </div>
+      <div class="col">
+        
+          </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+            Link de la imagen original:  <a id="direccion" class="" ></a>
+            <table class="table table-hover" >
+              <tr>
+                  
+                  <th colspan="2"><div id="t2"  > <p>Tiempo restante:</p>  <strong id="tiempo_R" ></strong> 
+                
+                  </div></th>
+                  <th><div id="p1"> <p>Puntuacion: </p> <strong class="alert alert-secondary"  id="puntos" ></strong> </div></th>
+              </tr>
+                      </tr>
+                  </table>
+          </div>
+        <div class="card-body">
+          
+          <p class="card-text"> <p class="text-primary" >Historia de la siguiente imagen</p><div class="text" id="texto" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima modi accusamus ducimus quod minus accusantium dolore delectus incidunt quo. Vel ad aliquid ipsum quod deserunt, veniam itaque porro deleniti nam.</div></p>
+          <h6>¿Que crees que es?</h6>
+          <table>
+              <tr>
+                  <td><img  id="muestra_fantoche" width="100px" src="img/pregunta.png" class="img-fluid" alt="..."></td>
+                  <td> <select onchange="estado()" id="seleccion" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                    <option  value="0" selected>Selecciona</option>
+                    <option  value="1">Sombra Blanca</option>
+                    <option  value="2">Sombra Negra</option>
+                    <option  value="3">Hombre blanco heterosexual</option>
+                    <option   value="4">Movimiento Perpetuo</option>
+                    <option value="5">Niña</option>
+                    <option  value="6">Polvo Estelar</option>
+                    <option  value="7">La novia toxica</option>
+                </select>
+              
+            </td>
+            <td><button id="votar_boton" type="submit" class="btn btn-success" onclick="votar()" > <img width="20px" src="/baseline_done_white_18dp.png" alt=""> Aceptar</button></td>
+              </tr>
+          </table>
+          <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
+              <img width="30px" src="/baseline_not_listed_location_white_18dp.png" alt=""> 
+              </button>
+            
+              <!-- The Modal -->
+              <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                  
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">Tipos de fantasmas</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                      <table table table-hover table-dark >
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Imagen</th>
+                            <th>Descripcion</th>
+                        </tr>
+                        <tr>
+                            <td>Sombra Blanca</td>
+                            <td><img src="/img/ejempls/sombra_blanca.jpg" alt="" width="100px"></td>
+                            <td>A menudo son manchas de color blanquesino que aparecen en videos o en imágenes , anunciado normalmente como fantasma .
+                              Pueden ser difusas o se manifiestan como una clase de humo blanco .</td>
+                        </tr>
+                        <tr>
+                            <td>Sombra Negra</td>
+                            <td><img src="/img/ejempls/sombra_negra.gif" alt="" width="100px"></td>
+                            <td>Suelen ser manchas negras confundidas con sombras , grabadas o tomadas en imágenes .Normalmente les llaman Gente Sombra.</td>
+                        </tr>
+                        <tr>
+                            <td>Hombre BLanco heterosexual</td>
+                            <td><img src="/img/ejempls/hombre.gif" alt="" width="100px"></td>
+                            <td>En muchas ocasiones son representaciones de demonios captados por cámaras .
+                              Casi siempre son humanoides de tez grisásea , que no presentan cabello y tienen una mirada amenazante.</td>
+                        </tr>
+                        <tr>
+                            <td>Movimiento Perpetuo</td>
+                            <td><img src="/img/ejempls/movimiento.gif" alt="" width="100px"></td>
+                            <td>Son movimientos paranormales ,que regularmente se presentan en las llamadas 'casas encantadas' o que tienen el fenómeno 'Poltergeist'.Estos movimientos se hacen presentes en cosas materiales inanimadas como: Sillas ,Cajones, Puertas , etc ...</td>
+                        </tr>
+                        <tr>
+                            <td>Niña</td>
+                            <td><img src="/img/ejempls/nina.gif" alt="" width="100px"></td>
+                            <td>A menudo es una aparición de un espíritu de una infante vestida con bata blanca, descalza y de cabello largo de color negro.</td>
+                        </tr>
+                        <tr>
+                            <td>Polvo Estelar</td>
+                            <td><img src="/img/ejempls/polvo.gif" alt="" width="100px"></td>
+                            <td>Es un episodio paranormal que ocurre en las lentes de las cámaras , normalmente se describen como como pequeñas cosas redondas luminosas y se presentan a contra luz.</td>
+                        </tr>
+                        <tr>
+                            <td>Novia toxica</td>
+                            <td><img src="/img/ejempls/novia.gif" alt="" width="100px"></td>
+                            <td>Es una aparición en forma humanodide Femenina de edad adulta , que recurrentemente tiene como característica dar gritos por las noches y cuenta  con una cara difusa.</td>
+                        </tr>
+                      </table>
+                    </div>
+                    
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Cerrar</button>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+              <button  type="submit" class="btn btn-warning btn-lg" onclick="location.reload()" >Reiniciar<img width="20px" src="/baseline_autorenew_black_18dp.png" alt=""></button>
+          <button  type="submit" class="btn btn-dark btn-lg" onclick="siguiente()" >Siguiente<img src="/baseline_arrow_right_alt_white_24.png" width="20px"  alt=""></button></div>
+        </div>
+    <script src="/js/index.js" ></script>
+   
+</body>
+</html>
